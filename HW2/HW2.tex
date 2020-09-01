@@ -20,6 +20,10 @@ Next we show that there are infinitely many rational numbers in between two dist
 
 \end{proof}
 
+
+
+
+\newpage
 \problem{2}
 What kinds of real numbers are representable by Cauchy sequences of integers.
 \hrule
@@ -31,6 +35,10 @@ Only integers are representable by Cauchy sequences of integers.
 Let $x_n$ be a Cauchy sequence of integers. Then we know that $\forall n \in \naturals \: \exists m \in \naturals \: s.t \: \forall j,k \geq m \; |x_j - x_k| \leq 1/n$. If $n \geq 2$ then $x_j$ must equal $x_k$. Since $x_j = x_k \in \integers$ the sequence must converge to $x_j$ which is an integer.
 \end{proof}
 
+
+
+
+\newpage
 \problem{3}
 Prove that if a Cauchy sequence of rationals is modified by changing a finite number of terms, the result is an equivalent Cauchy sequence.
 \hrule
@@ -46,6 +54,36 @@ $\forall n \in \naturals \: \exists m \in \naturals \: s.t \: \forall k \geq m \
 
 We know that $\forall  k > a$ $x_k = x'_k$. We select $m = a + 1$. Then 
 $\forall n \in \naturals \: \forall k \geq m \; |x_k - x'_k| = 0 \leq 1/n$ as required. So $x$ and $x'$ are equivalent.
+
+\end{proof}
+
+
+
+\newpage
+\problem{4}
+Can a Cauchy sequence of positive rational numbers be equivalent to a Cauchy sequence of negative rational numbers. 
+\hrule
+
+Yes. 
+
+\begin{proof}
+
+We know that two Cauchy sequences are equivalent iff they have the same limit. So we show that there is a sequence of positive rational numbers and a sequence of negative rational numbers that have the same limit. We take a sequence of positive rational numbers that converges to zero. For example the sequence $x_i = 1/i^3$ converges to zero and is strictly positive. We can similarly find a Cauchy sequence of negative numbers that converge to zero. For example the sequence $x_j = -1/i^3$ converges to zero and is strictly negative. Thus we have found two sequences of rational numbers with the same limit so they must be equivalent. 
+
+\end{proof}
+
+
+\newpage
+\problem{5}
+Show that if $x_1, x_2, ...$ is a Cauchy sequence of rational numbers there exists a positive integer $N$ such that $x_j \leq N \; \forall j$.
+\hrule
+
+\begin{proof}
+
+
+In the book (and in class) it was shown that every Cauchy sequence converges to some $x \in \reals$. Then because the real number system is an ordered field that includes the integers, we can find an integer $N \in \integers$ s.t. $N > x + 1$. 
+
+However, it is possible that some $x_j > N$. We first show that the number of elements $x_j > y$ is finite. Because $x_i$ is a Cauchy sequence we know that $\forall n \in \naturals \: \exists m \in \naturals \: s.t \: \forall j,k \geq m \; |x_j - x_k| \leq 1/n$. We consider the case where $n = 1$ as it has the loosest bound on the sequence. $m$ must be finite, then by the Cauchy criterion every element $x_j$ s.t. $j > m$ must be within 1 of $x$: $|x_j - x| \leq 1$. So any element that is larger than $N$ must be in the first $m$ elements. Since this is finite, we can find the maximum value $x_p$. Then we set $N =  \lceil max(x+1, x_p) \rceil $. Then $x_j \leq N \; \forall j$ 
 
 \end{proof}
 
