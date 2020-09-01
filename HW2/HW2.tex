@@ -1,0 +1,23 @@
+\documentclass[11pt]{article}
+\usepackage{../EllioStyle}
+
+\title{Homework 2}
+\author{Elliott Pryor}
+\date{4 Sept 2020}
+
+
+\begin{document}
+\maketitle
+
+\problem{1}
+Prove that between any two distinct rational numbers there are infinitely many other rational numbers.
+\hrule
+
+\begin{proof}
+We first start by showing that between any two distinct rational numbers, there is at least one rational number. Let $p, q \in \rationals$ s.t. $p \neq q$. By definition of $p = \frac{a}{b} = \frac{a * d}{bd}$, $q = \frac{c}{d} = \frac{ c * b}{bd}$. Because $p \neq q$ $ad \neq cb$ so $|ad - cb| \geq 1$. Then we write $p = \frac{2a * d}{2bd}$ and $q = \frac{2 c * b}{2bd}$. Now the difference $|2ad - 2 cb| \geq 2$. So there must be an integer, $x$, in between $2ad$ and $2cb$.  So we have a new rational number $r = \frac{x}{2bd}$ which lies between $p$ and $q$. So we have shown that there is at least one rational number in between any two distinct rational numbers.
+
+Next we show that there are infinitely many rational numbers in between two distinct rational numbers. Let $p, q \in \rationals$ s.t. $p \neq q$. By above, there is a rational number $r$ in between $p$ and $q$. We can then always find a new rational number, $r'$, in between $p$ and the previous $r$ value. So there are infinitely many rational numbers in between $p$ and $q$.
+
+\end{proof}
+
+\end{document}
