@@ -32,7 +32,7 @@ Only integers are representable by Cauchy sequences of integers.
 
 \begin{proof} 
 
-Let $x_n$ be a Cauchy sequence of integers. Then we know that $\forall n \in \naturals \: \exists m \in \naturals \: s.t \: \forall j,k \geq m \; |x_j - x_k| \leq 1/n$. If $n \geq 2$ then $x_j$ must equal $x_k$. Since $x_j = x_k \in \integers$ the sequence must converge to $x_j$ which is an integer.
+Let $x_n$ be a Cauchy sequence of integers. Then we know that $\forall n \in \naturals \; \exists m \in \naturals \; s.t \; \forall j,k \geq m \; |x_j - x_k| \leq 1/n$. If $n \geq 2$ then $x_j$ must equal $x_k$. Since $x_j = x_k \in \integers$ the sequence must converge to $x_j$ which is an integer.
 \end{proof}
 
 
@@ -46,14 +46,14 @@ Prove that if a Cauchy sequence of rationals is modified by changing a finite nu
 
 \begin{proof}
 
-Let $x_n$ be a Cauchy sequence of rationals that has limit of $x$. We know that $\forall n \in \naturals \: \exists m \in \naturals \: s.t \: \forall j,k \geq m \; |x_j - x_k| \leq 1/n$. Then $x'_n$ is the resulting Cauchy sequence after changing a finite number of elements in $x_n$. Let $a$ be the largest index of the modified elements. Because a finite number of elements were modified, $a$ must be finite.
+Let $x_n$ be a Cauchy sequence of rationals that has limit of $x$. We know that $\forall n \in \naturals \; \exists m_n \in \naturals \; s.t \; \forall j,k \geq m_n \; |x_j - x_k| \leq 1/n$. Then $x'_n$ is the resulting Cauchy sequence after changing a finite number of elements in $x_n$. Let $a$ be the largest index of the modified elements. Because a finite number of elements were modified, $a$ must be finite.
 
 We show that $x $ is equivalent to $x'$. So we are attempting to show 
 
-$\forall n \in \naturals \: \exists m \in \naturals \: s.t \: \forall k \geq m \; |x_k - x'_k| \leq 1/n$. 
+$\forall n \in \naturals \; \exists m \in \naturals \; s.t \; \forall k \geq m \; |x_k - x'_k| \leq 1/n$. 
 
-We know that $\forall  k > a$ $x_k = x'_k$. We select $m = a + 1$. Then 
-$\forall n \in \naturals \: \forall k \geq m \; |x_k - x'_k| = 0 \leq 1/n$ as required. So $x$ and $x'$ are equivalent.
+We know that $\forall  k > a$ $x_k = x'_k$. We select $m = \max(a + 1, m_n)$. Then 
+$\forall n \in \naturals \; \forall k \geq m \; |x_k - x'_k| = 0 \leq 1/n$ as required. So $x$ and $x'$ are equivalent.
 
 \end{proof}
 
@@ -68,7 +68,15 @@ Yes.
 
 \begin{proof}
 
-We know that two Cauchy sequences are equivalent iff they have the same limit. So we show that there is a sequence of positive rational numbers and a sequence of negative rational numbers that have the same limit. We take a sequence of positive rational numbers that converges to zero. For example the sequence $x_i = 1/i^3$ converges to zero and is strictly positive. We can similarly find a Cauchy sequence of negative numbers that converge to zero. For example the sequence $x_j = -1/i^3$ converges to zero and is strictly negative. Thus we have found two sequences of rational numbers with the same limit so they must be equivalent. 
+We know that two Cauchy sequences are equivalent iff they have the same limit. So we show that there is a sequence of positive rational numbers and a sequence of negative rational numbers that have the same limit. We take a sequence of positive rational numbers that converges to zero. For example the sequence $x_i = 1/i^3$ converges to zero and is strictly positive. 
+
+In order to show that $x_i = 1/i^3$ converges to $x = 0$ we must show that $\forall n \in \naturals \; \exists m \in \naturals \; s.t \; \forall k \geq m \; |x_k - x| \leq 1/n$. If we choose $m = n$ then $|x_k - x| \leq |1/n^3 - x| = |1/n^3 - 0| = 1/n^3 \leq 1/n$ as required.
+
+We can similarly find a Cauchy sequence of negative numbers that converge to zero. For example the sequence $x_j = -1/j^3$ converges to zero and is strictly negative. 
+
+In order to show that $x_j = -1/j^3$ converges to $x = 0$ we must show that $\forall n \in \naturals \; \exists m \in \naturals \; s.t \; \forall k \geq m \; |x_k - x| \leq 1/n$. If we choose $m = n$ then $|x_k - x| \leq |-1/n^3 - x| = |-1/n^3 - 0| = 1/n^3 \leq 1/n$ as required.
+
+Since each sequence is convergent it must be Cauchy. Thus we have found two Cauchy sequences of rational numbers with the same limit so they must be equivalent. 
 
 \end{proof}
 
@@ -81,9 +89,7 @@ Show that if $x_1, x_2, ...$ is a Cauchy sequence of rational numbers there exis
 \begin{proof}
 
 
-In the book (and in class) it was shown that every Cauchy sequence converges to some $x \in \reals$. Then because the real number system is an ordered field that includes the integers, we can find an integer $N \in \integers$ s.t. $N > x + 1$. 
-
-However, it is possible that some $x_j > N$. We first show that the number of elements $x_j > y$ is finite. Because $x_i$ is a Cauchy sequence we know that $\forall n \in \naturals \: \exists m \in \naturals \: s.t \: \forall j,k \geq m \; |x_j - x_k| \leq 1/n$. We consider the case where $n = 1$ as it has the loosest bound on the sequence. $m$ must be finite, then by the Cauchy criterion every element $x_j$ s.t. $j > m$ must be within 1 of $x$: $|x_j - x| \leq 1$. So any element that is larger than $N$ must be in the first $m$ elements. Since this is finite, we can find the maximum value $x_p$. Then we set $N =  \lceil max(x+1, x_p) \rceil $. Then $x_j \leq N \; \forall j$ 
+By the definition of a Cauchy sequence we know that $\forall n \in \naturals \; \exists m \in \naturals \; s.t \; \forall j,k \geq m \; |x_j - x_k| \leq 1/n$. Then $|x_j - x_m| \leq 1/n$. We consider the case where $n = 1$ as it has the loosest bound on the sequence. Then by the Cauchy criterion every element $x_j$ s.t. $j \geq m$ must be within 1 of $x_m$: $|x_j - x_m| \leq 1$. So any element that is larger than $N$ must be in the first $m$ elements. Since $m$ is finite, we can find the maximum value $x_p$ of the first $m-1$ elements; $x_p = \max(x_1, x_2, ... x_{m-1}) $. Then we set $N = \lceil \max(x_m+1, x_p) \rceil $. Then $x_j \leq N \; \forall j$ 
 
 \end{proof}
 
