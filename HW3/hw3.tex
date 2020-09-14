@@ -1,0 +1,62 @@
+\documentclass[11pt]{article}
+\usepackage{../EllioStyle}
+
+\title{Homework 3}
+\author{Elliott Pryor}
+\date{16 Sept 2020}
+
+
+\begin{document}
+\maketitle
+
+
+
+\problem{1} 2.2.4-3
+
+If $x$ is a real number, show that there exists a Cauchy sequence of rationals, $x_1, x_2, ...$ representing $x$ such that $x_n < x$ for all $n$
+\hrule
+
+\begin{proof}
+
+
+We first show that there is some rational number $y$ s.t $x-1/n \leq y \leq x$ for $x \in \reals$ and $n \in \naturals$. Since the reals are closed under addition, $x - 1/n$ is a real number. By the density of rationals we can find rational numbers $y_1$ and $y_2$ such that $|x - y_1| \leq 1/4n$ and $|(x-1/n) - y_2| \leq 1/4n$. We then let $y$ be the midpoint of $[y_2, y_1]$.  So in the worst case, where $y_1 = x - 1/4n$ and $y_2 = x - 5/4n$ then $y = \frac{(x - 1/4n) - (x - 5/4n)}{2} + (x - 5/4n) = 1/2n + x - 5/4n = x - 3/4n$. 
+We then show that $y < x$ by examining the case where $y_1 = x + 1/4n$ and $y_2 = x - 3/4n$ so $y = \frac{x + 1/4n - x + 3/4n}{2} +  x - 3/4n = x - 1/4n < x$.
+So $x - y < 1/n$.
+
+From above, we can find some $y \in \rationals$ s.t. $x - y < 1/n$. We then construct sequence of rationals $\{y_k\}$ that satisfy this relation. By the construction, $y_k < x$ $\forall k$. Then $\forall n \in \naturals \; \exists m \in \naturals \; s.t. \; |x - y_k| \leq 1/n \; \forall k \geq m$. By our construction, if $m = n$ the previous statement is true. Therefore, $\{y_k\}$ converges to $x$. Since $\{y_k\}$ is convergent, then it must be Cauchy and it represents $x$ since it has $x$ as its limit.
+\end{proof}
+
+
+
+\problem{2} 2.2.4-7
+
+Prove $|x-y| \geq |x| - |y|$ for any real numbers $x$ and $y$.
+\hrule
+
+
+\begin{proof}
+
+Let $\{x_k\}$ be a Cauchy sequence of rationals representing $x$ and $\{y_k\}$ be a Cauchy sequence of rationals representing $y$. Then $\{x_k - y_k\}$ is a Cauchy sequence representing $x - y$. By the triangle inequality $|x_k - y_k| \geq |x_k| - |y_k|$. By definition $\lim_{k \to \infty} |x_k| = |x|$ and $\lim_{k \to \infty} |y_k| = |y|$. So $lim_{k \to \infty} |x_k - y_k| \geq |x| - |y|$. So we have $|x - y| \geq |x| - |y|$ for some $x,y \in reals$
+
+\end{proof}
+
+
+\problem{3} 2.3.3-1
+
+Write out a proof that $\lim_{k \to \infty} (x_k + y_k) = x + y$ if $\lim_{k \to \infty} x_k = x$ and $\lim_{k \to \infty} y_k = y$ for sequences of real numbers.
+\hrule
+
+
+
+
+\problem{4} 2.3.3-3
+
+Let $x_1, x_2, ...$ be a sequence of real numbers such that $|x_n| \leq 1/2^n$, and set $y_n = x_1 + x_2 + ... + x_n$. Show that the sequence $y_1, y_2, ...$ converges. 
+\hrule
+
+
+
+
+
+
+\end{document}
