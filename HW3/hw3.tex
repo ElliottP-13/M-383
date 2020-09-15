@@ -36,7 +36,7 @@ Prove $|x-y| \geq |x| - |y|$ for any real numbers $x$ and $y$.
 
 \begin{proof}
 
-Let $\{x_k\}$ be a Cauchy sequence of rationals representing $x$ and $\{y_k\}$ be a Cauchy sequence of rationals representing $y$. Then $\{x_k - y_k\}$ is a Cauchy sequence representing $x - y$. By the triangle inequality $|x_k - y_k| \geq |x_k| - |y_k|$. By definition $\lim_{k \to \infty} |x_k| = |x|$ and $\lim_{k \to \infty} |y_k| = |y|$. So $lim_{k \to \infty} |x_k - y_k| \geq |x| - |y|$. So we have $|x - y| \geq |x| - |y|$ for some $x,y \in reals$
+Let $\{x_k\}$ be a Cauchy sequence of rationals representing $x$ and $\{y_k\}$ be a Cauchy sequence of rationals representing $y$. Then $\{x_k - y_k\}$ is a Cauchy sequence representing $x - y$. By the triangle inequality $|x_k - y_k| \geq |x_k| - |y_k|$. By definition $\lim_{k \to \infty} |x_k| = |x|$ and $\lim_{k \to \infty} |y_k| = |y|$. So $lim_{k \to \infty} |x_k - y_k| \geq \lim_{k \to \infty} |x_k| - \lim_{k \to \infty} |y_k| = |x| - |y|$. So we have $|x - y| \geq |x| - |y|$ for some $x,y \in \reals$
 
 \end{proof}
 
@@ -46,7 +46,15 @@ Let $\{x_k\}$ be a Cauchy sequence of rationals representing $x$ and $\{y_k\}$ b
 Write out a proof that $\lim_{k \to \infty} (x_k + y_k) = x + y$ if $\lim_{k \to \infty} x_k = x$ and $\lim_{k \to \infty} y_k = y$ for sequences of real numbers.
 \hrule
 
+\begin{proof}
 
+We know that the sequence $\{x_k\}$ converges to $x$ and $\{y_k\}$ converges to $y$. So $\forall n \in \naturals \; \exists m \in \naturals \; s.t. \; \forall k \geq m \; |x_k - x| \leq 1/2n$ and $\forall n \in \naturals \; \exists m \in \naturals \; s.t. \; \forall k \geq m \; |y_k - y| \leq 1/2n$. Since both $\{x_k\}$ and $\{y_k\}$ have limits, both must be Cauchy sequences. 
+
+So we want to show that $\{x_k + y_k\}$ converges to $x + y$. So we need to show $\forall n \in \naturals \; \exists m \in \naturals \; s.t. \; \forall k \geq m \; |(x + y) - (x_k - y_k)| \leq 1/n$.  
+$$|(x + y) - (x_k + y_k)| = |(x - x_k) + (y - y_k)| \leq |x - x_k| + |y - y_k| \leq 1/2n + 1/2n = 1/n$$
+So then by the definition of a limit $\lim_{k \to \infty} (x_k + y_k) = x + y$. 
+
+\end{proof}
 
 
 \problem{4} 2.3.3-3
@@ -54,7 +62,16 @@ Write out a proof that $\lim_{k \to \infty} (x_k + y_k) = x + y$ if $\lim_{k \to
 Let $x_1, x_2, ...$ be a sequence of real numbers such that $|x_n| \leq 1/2^n$, and set $y_n = x_1 + x_2 + ... + x_n$. Show that the sequence $y_1, y_2, ...$ converges. 
 \hrule
 
+\begin{proof}
 
+We know that a sequence converges iff it is Cauchy. So we show that $y_1, y_2, ...$ is Cauchy. So we must show $\forall n \in \naturals \; \exists m \in \naturals \; s.t. \; \forall j,k \geq m \; |y_j - y_k| \leq 1/n$. Suppose $j \geq k$ then $|y_j - y_k| = |\sum_{i = 1} ^j (1/2)^i - \sum_{i = 1} ^k (1/2)^i| = \sum_{i = k} ^j (1/2)^i$. Now we must find an $m$ such that $\sum_{i = m} ^ \infty (1/2)^i \leq 1/n$. 
+
+Let $s = \sum_{i = 1} ^n (1/2)^i$. Then $2s = 1 + \sum_{i = 1} ^{n-1} (1/2)^i =  + s - 1/2^n$. So $s = 1 - 1/2^n$. Then as $\lim_{n \to \infty} s = 1$. So $\sum_{i = 1} ^\infty
+ (1/2)^i = 1$. Then $\sum_{i = m} ^ \infty (1/2)^i = (1/2)^m \sum_{i = 1} ^\infty (1/2)^i = (1/2)^m s = (1/2)^m$. So now we just choose an $m$ such that $1/2^m \leq 1/n$. This holds if $m \geq \frac{\ln(1/n)}{\ln(1/2)}$. For simplicity we choose $m = n$ since $n > \frac{\ln(1/n)}{\ln(1/2)}$ $\forall n \in \naturals$.
+ 
+So we have $\forall n \in \naturals \; \forall j,k \geq n \; |y_j - y_k| \leq 1/n$ as required.
+
+\end{proof}
 
 
 
