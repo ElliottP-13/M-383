@@ -90,7 +90,9 @@ Prove $sup(A \cup B) \geq sup (A)$ and $sup(A\cap B) \leq sup(A)$
 
 \begin{proof}
 
-First we show $sup(A \cup B) \geq sup (A)$. So if $x = sup(A)$ then $x \geq y \; \forall y \in A$.  Then $\exists x_l \in A \: s.t. \; |x - x_l| \leq 1/n \; \forall n \in \naturals$. $x_l$ is also in $A \cup B$. Then since $sup(A\cup B) \geq z \; \forall z \in A \cup B$ $sup(A \cup B) \geq x_l$
+First we show $sup(A \cup B) \geq sup (A)$ by contradiction. We suppose that $sup(A \cup B) < sup(A)$. By definition $sup(A \cup B) \geq x \: \forall x \in A \cup B$. Then since every element in $A$ is also in $A \cup B$ it is true that $sup(A \cup B) \geq x \: \forall x \in A$. Since $sup(A) \geq x \: \forall x \in A$ and $sup(A \cup B) < sup(A)$ then $sup(A)$ is not a least upper bound, a contradiction so $sup(A \cup B) \geq sup(A)$
+
+Next we show $sup(A \cap B) \leq sup(A)$ by contradiction. We suppose that $sup(A \cap B) > sup(A)$. Since $sup(A \cap B)$ is the least upper bound, $\exists x \in A \cap B \; s.t |x - sup(A \cap B)| \leq 1/n \; \forall n$. Clearly everything in $A \cap B$ is also in $A$. Since $sup(A \cap B) > sup(A)$ then $\exists x \in A \cap B > sup(A)$ which is a contradiction since $A \cap B \subseteq A$. So $sup(A \cap B) \leq sup(A)$
 
 \end{proof}
 
@@ -104,7 +106,26 @@ First we show $sup(A \cup B) \geq sup (A)$. So if $x = sup(A)$ then $x \geq y \;
 \newpage
 \problem{4} 3.1.3 problem 6
 
-Is every subsequence of a subsequence of a sequence also a subsequence of the sequence?c
+Is every subsequence of a subsequence of a sequence also a subsequence of the sequence?
+\hrule
+
+Yes. 
+
+\begin{proof}
+
+Let $x_n$ be some sequence, and $x'_n$ be a subsequence. We show that $x''_n$ is also a subsequence of $x_n$. First clearly every element in $x'_n$ is in $x_n$ since $x'_n$ is a subsequence, then it follows that every element of $x''_n$ is an element of $x_n$ by the same reasoning. We need to show that there is a strictly increasing subsequence selection function $f$. There is a subsequence selection function $g$ that selects elements from $x$ to create $x'$, and another subsequence selection function $h$ that selects elements from $x'$ to create $x''$. The subsequence selection function $f = h(g(n))$. $f: \naturals \to \naturals$ since $g: \naturals \to \naturals$ and $h: \naturals \to \naturals$. We show that equation \ref{eq} is strictly increasing 
+
+\begin{equation}
+\label{eq}
+h(g(n+1)) > h(g(n))
+\end{equation}
+
+$g(n+1) > g(n)$ by definition. Let $a = g(n)$ then $g(n+1) \geq a + 1$, so in the worst case we have $g(n+1) = a + 1$. So we substitute this into equation \ref{eq}. $h(a + 1) > h(a)$. This is true because $h$ is a subsequence selection function so is strictly increasing. Thus $f$ which is the composition of $h$ and $g$ ($f = h(g(n))$) must be strictly increasing. So $f$ is a subsequence selection function, and $x''_n$ must be a subsequence of $x_n$ as required.  
+
+\end{proof}
+
+
+
 
 
 \end{document}
