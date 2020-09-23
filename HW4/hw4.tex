@@ -33,13 +33,52 @@ If we choose $m = n$ then $1/j \leq 1/n \; \forall j \geq n$ as required. Since 
 \newpage
 \problem{2} 3.1.3 problem 2
 
-If a bounded sequence is the sum of a monotone increasing and monotone decreasing sequence ($x_n = y_n + z_n$ where $\{y_n\}$ is monotone increasing and $\{z_n\}$ is monotone decreasing) does it follow that the sequence converges? What if $\{y_n\}$ and $\{z_n\}$ are bounded?
+\begin{enumerate}
+ \item If a bounded sequence is the sum of a monotone increasing and monotone decreasing sequence ($x_n = y_n + z_n$ where $\{y_n\}$ is monotone increasing and $\{z_n\}$ is monotone decreasing) does it follow that the sequence converges? 
+ 
+ \item What if $\{y_n\}$ and $\{z_n\}$ are bounded?
+\end{enumerate}
 
 \hrule
 
 
+\begin{enumerate}
+	\item No, the sequence could oscillate.
+	
+	\begin{proof} By contradiction
+	
+	Suppose that sequence $x_n = y_n + z_n$ where $\{y_n\}$ is monotone increasing and $\{z_n\}$ is monotone decreasing converges for any $y_n, z_n$, and $x_n$ is bounded. We let 
+	$y_n = \begin{cases}
+	n, & \text{if n is even}\\
+	(n+1), & \text{if n is odd}
+	\end{cases}$ and 
+	$z_n = \begin{cases}
+	-n, & \text{if n is even}\\
+	-(n-1), & \text{if n is odd}
+	\end{cases}$
+	
+	So $y_n = 2, 2, 4, 4, 6, ...$ and $z_n = 0, -2, -2, -4, -4,... $. And then 
+	$x_n = (2 + 0), (2 -2), (4 -2), (4 - 4), (6-4), ... = 2, 0, 2, 0, 2, ...$. 
+	So clearly $x_n$ is bounded and it does not converge since 
+	$|x_n - x_{n+1}| = 2 \; 	\forall n\in \naturals$
+	
+	So $x_n = y_n + z_n$ does not converge for monotone increasing sequence $y_n$ 
+	and monotone decreasing sequence $z_n$. 
+	A contradiction, so $x_n$ does not converge for every $y_n, z_n$.
+	\end{proof}	 
+	
+	\item Yes $x_n$ converges if $y_n, z_n$ are bounded. 
+	Since $y_n$ is bounded and monotone increasing it must have a finite limit equal to the $sup$, 
+	and since $z_n$ is bounded and monotone decreasing it must have a finite limit equal to the $inf$. 
+	Thus $\lim_{k \to \infty} y_k = y$ and $\lim_{k \to \infty} z_n = z$.
+	Then $\lim_{k \to \infty} y_k + z_k = y + z$.
+	Since $y, z \in \reals$ the sequence $x_n = y_n + z_n$ is convergent.
+		
+	
+\end{enumerate}
 
 
+	
 
 
 \newpage
@@ -49,7 +88,11 @@ Prove $sup(A \cup B) \geq sup (A)$ and $sup(A\cap B) \leq sup(A)$
 
 \hrule
 
+\begin{proof}
 
+First we show $sup(A \cup B) \geq sup (A)$. So if $x = sup(A)$ then $x \geq y \; \forall y \in A$.  Then $\exists x_l \in A \: s.t. \; |x - x_l| \leq 1/n \; \forall n \in \naturals$. $x_l$ is also in $A \cup B$. Then since $sup(A\cup B) \geq z \; \forall z \in A \cup B$ $sup(A \cup B) \geq x_l$
+
+\end{proof}
 
 
 
