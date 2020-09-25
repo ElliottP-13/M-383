@@ -13,20 +13,18 @@
 
 \problem{1} 3.1.3 problem 1a)
 
-Compute the sup, inf limsup, liminf and all the limit points of $x_n = 1 + (-1)^n / n$
+Compute the sup, inf limsup, liminf and all the limit points of $x_n = 1/n + (-1)^n$
 
 \hrule
 
 
-$x_n = 0, 3/2, 2/3, 5/4, 4/5, 5/6, 6/7, 9/8, ...$
+$x_n = 0, 3/2, -2/3, 5/4, -4/5, 7/6, -6/7, 9/8, ...$
 
-Clearly the sup is 3/2 and inf is 0. 
-We then show that the sequence is convergent to 1.
-We need to show $\forall n \in \naturals \; \exists m \in \naturals \: s.t. \forall j \geq m \; |x_j - 1| \leq 1/n$. 
+Clearly the sup is 3/2. 
 
-$$|x_j - 1| = |1 + (-1)^j / j -1| = |(-1)^j/j| = 1/j$$
+If we take the $\lim_{n \to \infty} x_n = \lim_{n \to \infty} 1/n + (-1)^n$ the $1/n$ term goes to $0$ and the $(-1)^n$ term is always either $\pm 1$. So $liminf = -1$ and $limsup = 1$. 
 
-If we choose $m = n$ then $1/j \leq 1/n \; \forall j \geq n$ as required. Since it is a convergent sequence, by theorem 3.1.5 $limsup = liminf = 1$.
+Then to compute the $inf$ we also look at the limit as $n \to \infty$ $-1$ is the $inf$ of $x_n$. $-1$ is an upper bound since $-1 + 1/n > -1 \; \forall n$. There cannot be a greater lower bound $y > -1$, by the Axiom of Archimedes $y - (-1) \geq 1/a$ for some $a \in \naturals$. We choose $n = a + 1$ if $a$ is even and $n = a + 2$ if $a$ is odd, in both cases $n$ is odd so $(-1)^n = -1$. So from Axiom of Archimedes $y - (-1) > 1/n \leftrightarrow y > 1/n - 1 = x_n$, so $y > x_n$ and thus is not an lower bound. So -1 is the greatest lower bound.
 
 
 
@@ -125,7 +123,17 @@ $g(n+1) > g(n)$ by definition. Let $a = g(n)$ then $g(n+1) \geq a + 1$, so in th
 \end{proof}
 
 
-
+\newpage
+\problem{5}
+ Can there exist a sequence whose set of limit points is exactly $1, 1/2, 1/3, ...$? (Hint: what is the liminf of the sequence?)
+ \hrule
+ 
+ No
+ 
+ \begin{proof}
+ 
+ By theorem 3.1.4 the $liminf$ of a sequence is a limit point of the sequence. By the same theorem we have that the $liminf = inf\{\text{limit points}\}$. The $inf\{1, 1/2, 1/3, ...\} = inf\{1/n \, | \, n \in \naturals\} = 0$. So $0$ must be a limit point of the sequence. A contradiction since $0 \neq 1/n \; \forall n \in \naturals$, so there cannot exist a sequence whose set of limit points is exactly $1, 1/2, 1/3, ...$.
+ \end{proof}
 
 
 \end{document}
