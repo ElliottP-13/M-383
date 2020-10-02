@@ -104,4 +104,26 @@ prove
 $$limsup\{x_n + y_n\} \leq limsup\{x_n\} + limsup\{y_n\}$$
 if both $limsup\{x_n\}$ and $limsup\{y_n\}$ are finite, and give an example where the equality does not hold.
 
+\hrule
+
+\begin{proof}
+
+ Fist define $z_n = \{x_n + y_n\}$. Let $X = limsup\{x_n\}$ and $Y = limsup\{y_n\}$ and $Z = limsup\{z_n\}$. By the definition of $limsup$ we have that there are infinitely many points in $\{z_n\}$ within a neighborhood of $Z$ (by neighborhood we mean $|z_n - Z| \leq 1/n$). There must also be a convergent subsequence  $z'$ that converges to $Z$. Because there is a subsequence selection function $f: \naturals \to \naturals$: $z'_i = z_j = x_j + y_j$. Then $x_j \leq sup_{a \geq j}\{x_a\}$ and $y_j \leq sup_{a \geq j}\{x_a\}$. We know that the 
+ 
+
+
+\begin{align*}
+Z &= \lim_{\i \to \infty} z'_i = \lim_{\j \to \infty} z_j = \lim_{\j \to \infty} (x_j + y_j) \\
+&\leq \lim_{\j \to \infty} (sup_{a \geq j}\{x_a\} + sup_{a \geq j}\{y_a\})
+&= \lim_{\j \to \infty} (sup_{a \geq j}\{x_a\}) + \lim_{\j \to \infty} (sup_{a \geq j}\{y_a\}) \\
+&\leq limsup\{x_j\} + limsup\{y_j\}
+\end{align*}
+ 
+$$$$
+
+So we have $limsup\{x_n + y_n\} = limsup\{z_n\} = Z \leq limsup\{x_n\} + limsup\{y_n\}$
+\end{proof}
+
+The inequality is necessary, if we have $x_n = 0, 1, 0, 1, 0, 1, ...$ and $y_n = 2, -3, 2, -3, 2, -3, ...$ then $z_n = 2, -2, 2, -2, 2, -2, ....$. Clearly $limsup\{z_n\} = 2$ and $limsup\{x_n\} = 1$ and $limsup\{y_n\} = 2$. But $2 \leq 1 + 2$ so the inequality is necessary (ie equality does not hold).
+
 \end{document}
