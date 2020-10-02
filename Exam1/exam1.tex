@@ -13,45 +13,93 @@
 True or false
 
 \begin{enumerate}
-	\item The set of $\rationals$ is countable? True
+	\item The set of $\rationals$ is countable? 
+	
+	True
+	
 	\item Let $A_1, A_2, A_3, ...$ be a sequence of countably many sets, and each $A_i, i = 1,2,3,...$ is countable then their cartesian product $A_1 x \times A_2 \times A_3 \times ...$ i countable.
+	
+	False
+	
 	\item A Cauchy sequence of positive rational numbers cannot be equivalent to a Cauchy sequence of negative rational numbers.
 	
-	\item Let $x_1, x_2, ...$ be a convergent squence of real numbers, then $limsup x_n = liminf x_n$.
+	False, $x_n = 1/n$ $y_n = -1/n$ both converge to 0 so have the same limit and are thus equivalent.
+	
+	\item Let $x_1, x_2, ...$ be a convergent sequence of real numbers, then $limsup x_n = liminf x_n$.
+	
+	True 
 	
 	\item The union of any number of closed sets is a closed set.
+	
+	False
+	
 \end{enumerate}
 
-
+\newpage
 \problem{2}
-The statement "A real number x is a limit-point of a sequence of real numbers $x_1, x_2, . . .$"
-can be written explicitly using quantifiers as follows: "For all $n \in \naturals$, for all $m \in \naturals$, there
-exists $j > m$ such that $|x - x_j| < 1/n$". Now write the statement "A real number x is
+The statement ``A real number x is a limit-point of a sequence of real numbers $x_1, x_2, . . .$"
+can be written explicitly using quantifiers as follows: ``For all $n \in \naturals$, for all $m \in \naturals$, there
+exists $j > m$ such that $|x - x_j| < 1/n$". 
+
+Now write the statement ``A real number x is
 not a limit-point of a sequence of real numbers $x_1, x_2, ...$" explicitly using quantifiers
 \hrule
 
 
+There exists an $n, m \in \naturals$ such that for all $j > m$ $|x - x_j| > 1/n$
 
+Or equivalently
+
+$$\exists m, n \in \naturals \; s.t. \forall j > m \; |x - x_j| > 1/n$$
+
+
+\newpage
 \problem{3}
 Give an example of a set A that is not closed but such that every point of A is a limit point
 \hrule
 
+We construct cantor set $C$. Then because $C$ is the cantor set, it is closed and perfect. So it contains all of its limit points and all of its points are limit points.  Then let $A = C \setminus \{0, 1\}$. Then every point in A lies within $(0, 1)$ so it is open. Since we only subtracted two points, every point remaining in $A$ must also be a limit point of $A$ (since $C$ is perfect). But it does not contain all of its limit points (it is missing 0 and 1) so it is not closed. Thus $A$ is not closed and every point in A is a limit point. 
 
 
 
+\newpage
 \problem{4}
 let $x_1, x_2, ...$ be a sequence of real numbers given by
 $$x_n = \frac{\cos(\sqrt{n!}\pi)}{4^n}$$
 and define
-$$y_n = x_1 + x_2 + ... + x_n$$
+$y_n = x_1 + x_2 + ... + x_n$
 prove that the sequence $y_1, y_2, ...$ converges
 \hrule
 
+\begin{proof}
+
+We know that $y_n = \sum_{i = 1} ^n \frac{\cos(\sqrt{i!}\pi)}{4^i}$
+
+We want to show that the sequence converges, so we show that it is Cauchy. So we must show that $\forall n \in \naturals \: \exists m \in \naturals \: \forall j,k \geq m \; |y_j - y_k| \leq 1/n$. 
+We assume that $j \geq k$, then we have that:
+$$|y_j - y_k| = \left| \sum_{i = 1} ^j \frac{\cos(\sqrt{i!}\pi)}{4^i} - \sum_{i = 1} ^k \frac{\cos(\sqrt{i!}\pi)}{4^i} \right| = \left| \sum_{i = k} ^j \frac{\cos(\sqrt{i!}\pi)}{4^i} \right|$$
+
+Then since $\cos(\sqrt{i!}\pi)$ is bounded $[-1, 1]$ 
+$\left| \sum_{i = k} ^j \frac{\cos(\sqrt{i!}\pi)}{4^i} \right| \leq \sum_{i = k} ^j \frac{1}{4^i} < \sum_{i = k} ^\infty \frac{1}{4^i}$.
+ In order to simplify this further we provide two properties of geometric series $\sum_{n=0}^\infty r^n = \frac{1}{1-r}$ and $\sum_{n=0}^x r^n = \frac{1-r^x}{1-r}$ if $|r| < 1$. Using this we can then solve for an expression for $\sum_{i = k} ^\infty \frac{1}{4^i}$
+\begin{align*}
+\sum_{i=0}^\infty \frac{1}{4^i} &= \sum_{i=0}^{k-1} \frac{1}{4^i} + \sum_{i=k}^\infty \frac{1}{4^i}\\
+\sum_{i=0}^\infty \frac{1}{4^i} - \sum_{i=0}^{k-1} \frac{1}{4^i} &= \sum_{i=k}^\infty \frac{1}{4^i}\\
+\frac{4}{3} - \left(\frac{1 - \frac{1}{4^{k-1}}}{1-\frac{1}{4}} \right) &= \sum_{i=k}^\infty \frac{1}{4^i}\\
+\frac{1}{3} * \frac{1}{4^k} &= \sum_{i=k}^\infty \frac{1}{4^i}
+\end{align*}
+Now the smallest $k$ can be is $m$, so $\sum_{i = k} ^\infty \frac{1}{4^i} \leq \sum_{i = m} ^\infty \frac{1}{4^i}$ so we must pick an $m$ such that $\sum_{i=m}^\infty \frac{1}{4^i} = \frac{1}{3} * \frac{1}{4^m} \leq 1/n$. This is true if $\log_4(n/3) \leq m$ for simplicity, we set $m = n$ since $n > \log_4(n/3) \; \forall n$. So in conclusion:
+
+$$|y_j - y_k| \leq \sum_{i = k} ^j \frac{1}{4^i} < \sum_{i = k} ^\infty \frac{1}{4^i} \leq \sum_{i = m} ^\infty \frac{1}{4^i} = \frac{1}{3} * \frac{1}{4^m}$$
+
+Now we have found an $m$ such that $\forall n \in \naturals \; \forall j,k \geq m \: |y_j - y_k| \leq 1/n$. So the sequence is Cauchy. Then it must converge, since all Cauchy sequences are convergent in the reals.
+
+\end{proof}
 
 
-
-
+\newpage
 \problem{5}
+
 prove
 $$limsup\{x_n + y_n\} \leq limsup\{x_n\} + limsup\{y_n\}$$
 if both $limsup\{x_n\}$ and $limsup\{y_n\}$ are finite, and give an example where the equality does not hold.
