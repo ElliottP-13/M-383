@@ -126,4 +126,30 @@ So we have $limsup\{x_n + y_n\} = limsup\{z_n\} = Z \leq limsup\{x_n\} + limsup\
 
 The inequality is necessary, if we have $x_n = 0, 1, 0, 1, 0, 1, ...$ and $y_n = 2, -3, 2, -3, 2, -3, ...$ then $z_n = 2, -2, 2, -2, 2, -2, ....$. Clearly $limsup\{z_n\} = 2$ and $limsup\{x_n\} = 1$ and $limsup\{y_n\} = 2$. But $2 \leq 1 + 2$ so the inequality is necessary (ie equality does not hold).
 
+
+
+
+
+\newpage
+\problem{6}
+Find the sup, inf, limsup, liminf, and all limit-points of the sequence 
+$$x_n = (-1)^n + 1/n + 2cos(\frac{n\pi}{2}, \quad n = 1,2,3...$$
+\hrule
+
+We start by listing a few elements to get an idea on the pattern
+
+$x_n = 0, -1/2,-2/3,13/4,-4/5,-5/6,-6/7,25/8,...$
+
+Unless $n \bmod 2 = 0$ the $\cos$ term is zero. So in these cases, the sequence is $-1^n + 1/n$. When $n$ is divisible by $2$ and not by $4$, the cosine term is $-2$, but the $(-1)^n$ term is positive, so $1 - 2 = -1$. But when $n$ is divisible by $4$ both the $(-1)^n$ term and the $\cos$ term are positive. So we get 
+$3 + 1/n$ on terms where $n \bmod 4 = 0$ and $-1 + 1/n$ on all the other terms. These two subsequences we denote $y_n = 3 + 1/n$ and $z_n = -1 + 1/n$ where 
+$x = z_1, z_2, z_3, y_4, z_5, z_6, z_7, y_8, z_9, .... $
+
+
+In the first few terms we see that $sup = 13/4$, as this is the first term in the sequence of $y_n$ which is monotone decreasing, so the first term is the largest. Then for the remainder we need to examine the limits of the sequences. For $limsup$ we examine the limit of $y_n$. $\lim_{n \to \infty} y_n = \lim_{n \to \infty} 3  + 1/n = 3$. So the $limsup = 3$. Since $y_n$ is monotone decreasing and bounded, it converges to its one limit point. We show that it converges to 3 $\forall n\in \naturals \; \exists m \; s.t \; \forall j \geq m \; |y_j - 3| \leq 1/n$. We choose $m = n$ then $|y_j - 3| \leq |y_m -3 | = |3 + 1/n -3| = 1/n \leq 1/n$ as required. 
+
+Then to compute the $inf$ and $liminf$ we examine $\lim_{n \to \infty} z_n = \lim_{n \to \infty} -1 + 1/n = -1$. This sequence is also monotone decreasing. So by the same argument as above we can see that the limit point of the sequence is $-1$. This is the $inf$ and $liminf$ of $x_n$.
+
+$sup = 13/4 \quad\quad limsup = 3 \quad\quad inf = -1 \quad\quad liminf = -1$. 
+
+
 \end{document}
