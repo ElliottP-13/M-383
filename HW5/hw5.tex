@@ -3,7 +3,7 @@
 
 \title{Homework 4}
 \author{Elliott Pryor}
-\date{25 Sept 2020}
+\date{4 Oct 2020}
 
 
 \begin{document}
@@ -35,12 +35,34 @@ Let $A$ be a set and $x$ a number. Show that $x$ is a limit point of $A$ if and 
 
 \hrule
 
+
+
+\begin{proof}
+
+We prove the forward direction $P \to Q$
+
+We assume that $x$ is a limit point of $A$ and show that there is a sequence of distinct points $x_1, x_2, ...$ in $A$ that converge to $x$. By the definition of a limit point we know that for any $n \in \naturals$ there exists a $y_n \in A$ s.t. $y_n \neq x$ and $|y_n - x| \leq 1/n$. Then by the axiom of Archimedes there must be infinitely many such $y_n$. Since if there was a finite number of $y_n$ then there is some $n_{max}$ and there is some other $n$ satisfying $1/n < 1/n_{max}$. 
+
+We then construct the sequence $y_1, y_2, y_3, ...$ where $y_n$ is the $y_i$ satisfying $\max_{i}\{|y_i - x| < 1/n \}$. Or in other words, we select the point in $A$ that is furthest from $x$ while being in a neighborhood of $1/n$ from $x$. We choose subsequence $y'_i$ such that $y'_i \neq y'_j$ if $i \neq j$. We can do this since there are infinitely many points within $1/n$ of $x$ for any $n$ so we can always find a unique one, and since each $y_n$ it may only be repeated a finite number of times in a row in the original sequence. Thus, $y'_n$ is a sequence of distinct points satsifying $|y'_n - x| < 1/n$ $\forall n$. Thus the sequence $y'_n$ converges to $x$. So if $x$ is a limit point of $A$ there exists a sequence of distinct points in $A$ that converge to $x$.
+
+
+We prove the reverse direction $P \gets Q$
+
+We assume that there is a sequence of points $x_1, x_2, ....$ of distinct points in $A$ that converge to $x$. We know that since $x_1, x_2, ...$ converges to $x$ then $\forall n \in \naturals \; \exists m \; s.t. \forall j \geq m \; |x_j - x| < 1/n$. 
+Since the sequence is a sequence of distinct point we know that $x_j \neq x$ for any $j$. Then we have for any $n \in \naturals$ there exists a $x_j \in A$ s.t. $x_j \neq x$ and $|x_j - x| < 1/n$.
+Which is the definition of a limit point of the sequence, so $x$ is a limit point of $A$
+
+\end{proof}
+
+
 \newpage
 \problem{3} 3.2.3 Problem 5
 
 Let $A$ be a closed set, $x$ a point in $A$, and $B$ be the set $A$ with $x$ removed. Under what conditions is $B$ closed. 
 
 \hrule
+
+A set is closed if it contains all of its limit points. So if $B$ is closed $x$ must not be a limit point of $A$. Since removing a single element from a set will not change its limit points. 
 
 
 \end{document}
