@@ -14,8 +14,18 @@
 \problem{1} 3.2.3 Problem 1
 
 Let $A$ be an open set. Show that if a finite number of points are removed from $A$ the remaining set is still open. Is the same true if a countable number of points are removed?
-
 \hrule
+
+\begin{proof}
+
+Because $A$ is an open set, we know that $A$ can be represented as the union of disjoint open intervals $\cup^\infty (a_i, b_i)$. 
+Furthermore, by the definition of an open set, we know that for any $x \in A$, $x$ is in an open interval that is contained within $A$.
+Say that $x \in (a, b)$. Then $x \notin (a, x)\cup(x,b)$. Since every open interval representing $A$ is disjoint, we replace the single interval $(a,b)$ containing $x$ with two more disjoint intervals $(a, x)$ and $(x, b)$. Then $A \setminus \{x\}$ can still be represented by a set of open intervals. So $A$ is open
+\end{proof}
+
+No, the same is not true if a countable number of points are removed
+
+
 
 
 \newpage
