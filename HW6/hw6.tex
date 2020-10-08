@@ -17,6 +17,24 @@ Show that compact sets are closed under arbitrary intersections and finite union
 \hrule
 
 
+\begin{proof}
+
+We first show that the intersection of finite or infinite compact sets is compact. Let $A$ be the union of any number of compact sets $A_i$.
+If $A = \emptyset$ then it is trivially compact. 
+So we examine the case where $A \neq \emptyset$. We know by Theorem 3.2.3 that the intersection of any number of closed sets is a closed set. Since a compact set is closed we know that the intersection of any number of these is at least closed.
+We show that $A$ must be bounded by contradiction. We assume $A$ is unbounded, so we take a sequence of points $x_1, x_2, ...$ in $A$ that is unbounded. 
+Then by the construction of $A$ the sequence $x_1, x_2, ...$ must be in each $A_i$. But $A_i$ is compact so it is closed and bounded, so cannot contain an unbounded sequence. A contradiction. 
+So the intersection of any number of compact sets is closed and bounded, so by Theorem 3.3.1 it is compact.
+
+Next we show that the union of a finite number of compact sets is compact. Let $A \cup_{i=1}^n A_i$ where $A_i$ is compact. We do this in much the same way as above.
+We know that the union of finitely many closed sets is closed. So the union of a finite number of compact sets is at least closed. 
+Then we show that $A$ must be bounded. We assume not, we assume $A$ is unbounded. Then there is a sequence of points $x_1, x_2, ...$ in $A$ that is unbounded. Then $\lim = -\infty$ or $\sup = \infty$. 
+Thus there must be infinitely many terms such that $x_j < -n$ or $x_j > n$. Since $A$ is the union of a finite number of sets, by the pigeon hole principle one set $A_i$ must contain infinity many of these. Then $A_i$ is not bounded, a contradiction since $A_i$ is compact. So $A$ is bounded. 
+Thus the union of a finite number of compact sets is compact.
+
+\end{proof}
+
+
 \newpage
 \problem{2} Pg 107 Problem 4
 
