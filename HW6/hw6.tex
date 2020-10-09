@@ -44,6 +44,17 @@ Is the same true if $B_1$ and $B_2$ not disjoint?
 
 \hrule
 
+\begin{proof}
+
+So we start with $A \cap B_1$ must be bounded since $A$ is bounded. We then show that $A$ is closed. We consider some sequence of points $x_1, x_2, ...$ in $A \cap B_1$. Since $x_1, x_2, ...$ is also in $A$ it must have some finite limit point $x \in A$. By the construction of $A$ $x \in B_1$ or $x \in B_2$. 
+We show that $x \notin B_2$ by contradiction. Suppose $x \in B_2$. By the definition of a limit point in a set, $x$ is a limit point of $B_2$ if for every neighborhood of $x$ there exists a point in $B_2$ not equal to x. So any neighborhood of $x \in B_2$ contains infinitely many points. 
+But each $x_1, x_2, ....$ is in $B_1$ which is disjoint from $B_2$. So $B_2$ cannot contain infinitely many points of $x_1, x_2,...$ A contradiction, so $x \in A \cap B_1$ so $A \cap B_1$ is closed and bounded. Thus it is compact.
+
+\end{proof}
+
+No the same is not true if $B_1$ and $B_2$ overlap. $B_2$ could contain a limit point of a sequence $x_1, x_2,...$ in $B_1$ whose limit point is not in $B_1$. For example $B_1 = (0,1)$ and $B_2 = (0.75, 2)$. Then if $A = [0.5, 1.5]$ $A$ is certainly compact. But $A \cap B_1$ = $[0.5, 1)$ which is not closed, thus not compact.
+
+
 \newpage
 \problem{3} Pg 107 Problem 8
 
