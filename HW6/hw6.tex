@@ -64,4 +64,16 @@ Give an example of a non-compact set $A$ such that both $\sup A$ and $\inf A$ be
 
 \hrule
 
+
+\begin{proof}
+
+Given a compact set $A$ we show that $\sup A \in A$ and $\inf A \in A$ by contradiction. 
+Suppose $\sup A \notin A$ and $\inf A \notin A$. Then there must be a sequence $x_1, x_2, ...$ in $A$ whose limit point is $\sup A$ and a sequence $y_1, y_2, ...$ in $A$ whose limit point is $\inf A$.
+If this were not the case, then either $\sup A$ and $\inf A$ are singular points in $A$, thus a contradiction. Or $\sup A$ is not the least upper bound and $\inf A$ is not the greatest lower bound, a contradiction of the definition of $\sup$ and $\inf$.
+ Then $A$ does not contain the limit points of any sequence of points in $A$, a contradiction since $A$ is compact. 
+\end{proof}
+
+If $A = [0, 1) \cup (1, 2]$ then the $\inf A = 0$ and $\sup A = 2$ both of which are in $A$, but it is not compact since it does not contain the point $1$. Ie. there is a sequence $x_n = 1/n + 1$ in $A$ whose limit point is clearly $1$, but $1 \notin A$ so $A$ is not compact.
+
+
 \end{document}
