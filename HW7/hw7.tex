@@ -5,6 +5,7 @@
 \author{Elliott Pryor}
 \date{19 Oct 2020}
 
+\renewcommand{\sp}{\; \;}
 
 \begin{document}
 \maketitle
@@ -44,8 +45,6 @@ Suppose not, suppose that $\exists 1/m$ st. $\forall n$ $\exists n < z_n \in \ma
 
 
 
-
-
 \newpage
 \problem{3} 4.1.5 Problem 7
 
@@ -53,11 +52,30 @@ Give an example of a continuous function with domain $\reals$ such that the inve
 
 \hrule
 
+
+Let $$f = \begin{cases}
+
+\end{cases}
+$$
+
+
+
 \newpage
 \problem{4} 4.1.5 Problem 10
 
 Show that a function that satisfies a Lipschitz condition is uniformly continuous.
 \hrule
+
+
+\begin{proof}
+
+A function satisfies the Lipschitz condition if $\exists m > 0$ st. $|f(x) - f(x_0) | \leq m |x-x_0| \sp \forall x, x_0 \in \mathcal{D}$. 
+Then we need to show that $\forall 1/k \sp \exists 1/n \sp s.t. \sp |f(x) - f(x_0)| < 1/k \sp \forall x, x_0 \in \mathcal{D} \text{ satisfying } |x-x_0| < 1/n$. 
+We choose $n = k m$ then $|x - x_0| < 1/km$ $\implies |f(x) - f(x_0)| < m * 1/km = 1/k$. 
+Thus we have  $\forall 1/k \sp \exists 1/n \sp s.t. \sp |f(x) - f(x_0)| < 1/k \sp \forall x, x_0 \in \mathcal{D} \text{ satisfying } |x-x_0| < 1/n$
+
+\end{proof}
+
 
 
 \end{document}
