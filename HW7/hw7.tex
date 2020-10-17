@@ -23,8 +23,28 @@ Then $A$ is the finite union of a finite number of closed sets which is closed b
 \newpage
 \problem{2} 4.1.5 Problem 4
 
-Give a definition of $\lim_{x \to \infty} f(x) = y$. Show that this is true iff for every sequence $x_1, x_2, ...$ of point in the domain of $f$ such that $\lim_{x\to \infty} x_n = \infty$ we have $\lim_{n\to \infty} f(x_n) = y$. \textit{Hint: } For the proof of the 2nd part of the problem, refer to the proof of Theorem 4.1.1.
+Give a definition of $\lim_{x \to \infty} f(x) = y$. Show that this is true iff for every sequence $x_1, x_2, ...$ of points in the domain of $f$ such that $\lim_{n \to \infty} x_n = \infty$ we have $\lim_{n\to \infty} f(x_n) = y$. \textit{Hint: } For the proof of the 2nd part of the problem, refer to the proof of Theorem 4.1.1.
 \hrule
+
+We define $\lim_{x \to \infty} f(x) = y$ as if $\forall 1/m$ there exists an $n$ such that $\forall x > n$ $|f(x) - y| < 1/m$. 
+
+\begin{proof}
+
+We first prove the forward direction. $P \to Q$
+
+Given that $\lim_{x \to \infty} f(x) = y$ exists. We take any sequence of points $x_1, x_2, ...$ such that $\lim_{n \to \infty} x_n = \infty$. We show that this implies $\lim_{n \to \infty} f(x_n) = y$. By our definition, we know that $\forall 1/m$ there exists an $n$ such that $\forall x > n$ $|f(x) - y| < 1/m$. We also know that $\lim_{n \to \infty} x_n = \infty$. Which means that there are infinitely many terms of $x_n$ satisfying $x_j > n$. So $\lim_{j \to \infty} x_j = \infty \implies \exists k \; s.t. \; \forall j \geq k \; x_j > n \implies |f(x_j) - y| < 1/m \implies \lim_{j \to \infty} f(x_j) = y$
+
+We now prove the reverse direction.
+
+Given that for every sequence $x_1, x_2, ...$ of points in the domain of $f$ such that $\lim_{n \to \infty} x_n = \infty$ we have $\lim_{n\to \infty} f(x_n) = y$. 
+We show that $lim_{x \to \infty} = y$. We need to show $\forall 1/m$ there exists an $n$ such that $\forall x > n$ $|f(x) - y| < 1/m$. 
+Suppose not, suppose that $\exists 1/m$ st. $\forall n$ $\exists n < z_n \in \mathbb{D}$ st. $|f(z_n) - y| \geq 1/m$. We can construct a sequence of the points $z_n$. By definition, $lim_{n \to \infty} = \infty$. But this sequence of points does not converge to $y$. A contradiction. So for every sequence $x_1, x_2, ...$ of points in the domain of $f$ such that $\lim_{n \to \infty} x_n = \infty$ we have $\lim_{n\to \infty} f(x_n) = y$ $\implies$ $\lim_{x \to \infty} f(x) = y$.
+
+\end{proof}
+
+
+
+
 
 \newpage
 \problem{3} 4.1.5 Problem 7
