@@ -1,9 +1,9 @@
 \documentclass[11pt]{article}
 \usepackage{../EllioStyle}
 
-\title{Homework 7}
+\title{Homework 8}
 \author{Elliott Pryor}
-\date{19 Oct 2020}
+\date{28 Oct 2020}
 
 \renewcommand{\sp}{\; \;}
 
@@ -12,11 +12,15 @@
 
 \problem{1} 4.2.4 Problem 1
 
-If $f$ is monotone increasong on an interval and has a jump discontinuity at $x_0$ in the interior of the domain, show that the jump is bounded above by $f(x_2) - f(x_1)$ for any two points $x_1, x_2$ in the domain surrounding $x_0$: $x_1 < x_0 < x_2$
+If $f$ is monotone increasing on an interval and has a jump discontinuity at $x_0$ in the interior of the domain, show that the jump is bounded above by $f(x_2) - f(x_1)$ for any two points $x_1, x_2$ in the domain surrounding $x_0$: $x_1 < x_0 < x_2$
 
-\hline
+\hrule
 
+\begin{proof}
 
+Suppose not, suppose that the jump is larger than $f(x_2) - f(x_1)$ for some $x_2, x_1$ in the domain surrounding $x_0$. Let $j$ denote the jump, $f(x_2) - f(x_1) < j$ . Then we evaluate the value of the function, since it is monotone increasing the smallest the gap between $x_1, x_2$ could be is $j$ (ie the function is constant on either side of the jump discontinuity). So $f(x_2) - f(x_1) \geq j$, a contradiction since $f(x_2) - f(x_1) < j$.
+
+\end{proof}
 
 
 
@@ -26,20 +30,40 @@ If $f$ is monotone increasong on an interval and has a jump discontinuity at $x_
 If the domain of a continuous function is an interval, show that the image is an interval. Give examples where the image is an open interval.
 \textit{Hint: Consider the interval with end points inf\{f(D)\} and sup\{f(D)\} where f is the function and D is the domain and use the intermediate Value theorem}
 
-\hline
+\hrule
 
 
+\begin{proof}
+
+Let $a = f^-1(\inf\{f(D)\})$ and $b = f^-1(sup\{f(D)\})$. If $a, b$ both exist and are finite then we can construct a closed interval $[a, b]$ which by the intermediate value theorem there must exist some $x' \in [a,b]$ st $f(x') \in [f(a), f(b)]$ which is a closed interval.
+
+Then if $a$ or $b$ does not exist it must asymptotically approach $\inf\{f(D)\}$ or $sup\{f(D)\}$. 
+If $\inf\{f(D)\}$ or $sup\{f(D)\}$ are finite, then we can construct closed interval $[a', b']$ where $a' = f^-1(\inf\{f(D)\} + 1/n)$ $b' = f^-1(\sup\{f(D)\} - 1/n)$ for some $n \in \naturals$ which is contained in $D$. 
+$\inf\{f(D)\}$ or $sup\{f(D)\}$ are infinite then we can similarly construct a closed interval $[a', b']$ in $D$ where $a' = f^-1(-n)$, $b' = f^-1(n)$. 
+Then by intermediate value theorem there is a closed interval $[f(a'), f(b')]$ contained in the image of $f$. 
+So the image $f(D) = \cup_{i = 1}^{\infty} [f(a'), f(b')]$ which is an open interval.
+
+Note we assumed $a \leq b$, these can be swapped if $b < a$ and the argument still holds.  
 
 
+\end{proof}
+
+For example, the function $f(x) = \frac{2x^2 - 1}{x^2 +1}$ is defined on $\reals$ and its image is $[-1, 2)$. Or $f(x) = x$ has domain $\reals$ and image $\reals$.
 
 
 \problem{3} 4.2.4 Problem 9
 
 If $f$ and $g$ are uniformly continuous, show that $f+g$ is uniformly continuous
 
-\hline
+\hrule
 
+\begin{proof}
 
+Let $f, g$ be continuous functions defined on a domain $D$. By the definition of uniform continuity $\forall 1/m \sp \exists 1/n$ st. $\forall x, x_0 \in D \sp |x - x_0| < 1/n \implies |f(x) - f(x_0)| < 1/2m$ and the same thing for $g$. 
+Then we want to show $\forall 1/m \sp \exists 1/n$ st. $\forall x, x_0 \in D \sp |x - x_0| < 1/n \implies |f(x) + g(x) - f(x_0) - g(x_0)| < 1/m$. 
+
+$|f(x) + g(x) - f(x_0) - g(x_0)| = |f(x) - f(x_0) + g(x) - g(x_0)| \leq |f(x) - f(x_0)| + |g(x) - g(x_0)| < 1/2m + 1/2m = 1/m$
+\end{proof}
 
 
 
@@ -47,13 +71,22 @@ If $f$ and $g$ are uniformly continuous, show that $f+g$ is uniformly continuous
 
 \problem{4} 4.2.4 problem 11
 
-If $f$ is a continuous function on a compact set, show that either $f$ has a zero or $f$ is bounded away from zero ($|f(x)| > 1/n$ for all $x$ in domain and some $1/n$)
+If $f$ is a continuous function on a compact set, show that either $f$ has a zero or $f$ is bounded away from zero ($|f(x)| > 1/n$ for all $x$ in domain and some $1/n$). 
 
-\hline
-
-
+\hrule
 
 
+
+\begin{proof}
+
+By theorem 4.2.3 we know that $f$ is bounded and obtains it maximum and minimum on the compact set $D$. 
+Thus the image of $f$ is a closed interval $\inf\{f(D)\}, \sup\{f(D)\})$.
+If the sign of $\inf\{f(D)\} \neq \sup\{f(D)\}$ then by the intermediate value theorem there must be a zero. 
+If $\inf\{f(D)\}$ or $\sup\{f(D)\}$ is zero, then it has a zero since it attains its maximum and minimum. Otherwise it does not have a zero.
+Consider $|f(x)|$, then $\inf\{|f(D)\} > 0$ and $\sup\{|f(D)\} > 0$.
+By the definition of $\inf , \sup$ $0 < \inf\{|f(D)\} \leq |f(x)| \leq \sup\{|f(D)\}$, thus $f(x)$ does not have a zero. 
+
+\end{proof}
 
 
 
