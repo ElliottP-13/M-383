@@ -78,22 +78,16 @@ thesis on the class of functions satisfying this condition!
 
 \problem{4} 5.2.4 problem 3
 
-Suppose $f$ is defined on $[a,b]$ and g is defined on $[b,c]$ with $f(b) = g(b)$ then define:
+Is the converse of the mean value theorem true, in the sense that if $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, a given point $x_0$ in $(a,b)$ there must exist points $x_1, x_2 \in (a,b)$ such that:
 
-$$h(x) = \begin{cases}
-f(x) & \text{if } a \leq x \leq b\\
-g(x) & \text{if } b \leq x \leq c\\
-\end{cases}$$
-
-give an example where $f$ and $g$ are differentiable but $h$ is not.
-Give a definition of one-sided deriviatives $f'(b)$ $g'(b)$ and show that the equality of these is a necessary and sufficient condition for $h$ to be differntiable. Given that $f,g$are differentiable.
-
+$$\frac{f(x_2) - f(x_1)}{x_2 - x_1} = f'(x_0)$$
 
 \hrule
 
 
+No
 
-
+Take $f(x) = x^3$ (or any odd polynomial with repeated root at 0). Choose $x_0 = 0$ then $f'(x_0) = 0$. For any $x_2 > x_1$ in $(a,b)$ we have $\frac{f(x_2) - f(x_1)}{x_2 - x_1} > 0$ since $f$ is monotone increasing. So you cannot find a pair of points $x_1, x_2$ such that $\frac{f(x_2) - f(x_1)}{x_2 - x_1} = f'(x_0)$. So we found a counterexample showing the converse of the mean value theorem cannot be true.
 
 
 
