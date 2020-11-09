@@ -72,7 +72,11 @@ thesis on the class of functions satisfying this condition!
 
 
 
-
+We re-write this as $\frac{f(x) - f(y)}{|x-y|} \leq M|x - y|^{\alpha -1}$.
+We know that $\alpha > 1$ so $\alpha - 1 > 0$.
+We then examine the limit as $x \to y$. 
+$$\lim_{x \to y} \frac{f(x) - f(y)}{|x-y|} \leq \lim_{x \to y} M|x - y|^{\alpha -1} = 0$$
+We note that this is the definition of the derivative of $f$ at $y$. We have $f'(y) = 0$ at an arbitrary $y$ in the domain, so this could be repeated at every point in the domain and we have $f'(y) = 0 \sp \forall y$. Then the derivative is zero at every point in the domain, so by theorem 5.2.2 $f$ is constant.
 
 
 
