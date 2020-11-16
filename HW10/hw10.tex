@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+\usepackage{../EllioStyle}
+
+\title{Homework 10}
+\author{Elliott Pryor}
+\date{28 Oct 2020}
+\rhead{Elliott Pryor}
+
+
+\renewcommand{\sp}{\; \;}
+
+\begin{document}
+\maketitle
+
+\problem{1} 5.3.4 Problem 1
+
+Define:
+$$x_+ = \begin{cases}
+x & \sp if \sp x \geq 0,\\
+0 & \sp if \sp x < 0
+\end{cases}$$
+
+Prove that $f(x) = x^k_+$ is continuously differentiable if $k \in \integers, \sp k > 1$
+\hrule
+
+First we show that: 
+$\frac{d}{dx} x^k = k \cdot x^{k-1}$
+
+\begin{proof}
+By induction:
+
+We have the base case of $k = 2$. Then $f(x) = x^2 = x \cdot x$. We can use the product rule and theorem 5.3.1 to simplify this.
+Let $g(x) = h(x) = x$ so $f(x) = (g \cdot h)(x)$. Then $f' = f(x)g'(x) + f'(x)g(x) = (x)(1) + (1)(x) = 2x$.
+So the base case holds. 
+
+Now we assume that for $f(x) = x^m$ $f'(x) = mx^{m-1}$. Then we show that $f(x) = x^{m+1}$ $f'(x) = (m+1)x^m$. 
+We can factor $f(x) = x^{m+1}$ into $g(x) = x$, $h(x) = x^m$. 
+Then by the product rule and inductive assumption that $h'(x) = mx^{m-1}$: $f' = f(x)g'(x) + f'(x)g(x) = (x)(mx^{m-1}) + (1)(x^m) = mx^m + x^m = (m+1)x^m$.
+
+Since the base case and inductive step hold, the claim is true by mathematical induction.
+
+\end{proof}
+
+Then using the above relation it is easy to see that it is continuous. 
+
+\begin{proof}
+
+We show that on both sides of zero the derivatives are equal. 
+So on the left hand side ($x < 0$) $f_-(x) = 0$ which is a constant function so $f_-'(x) = 0$. 
+Then by the above theorem on the right hand side ($x \geq 0$): $f_+(x) = x^k$ and $f_+'(x) = k x^{k-1}$. 
+Since $k \geq 2$, $k - 1 > 0$. So at $x = 0$ $f_+'(0) = k \cdot 0^{k-1} = 0$. 
+
+So the derivative of both the left and right hand sides are equal.  We can take the one sided limits of $\lim_{x \to 0 ^-} f_-'(x) = 0$ and $\lim_{x \to 0 ^+} f_+'(x) = 0$ so $\lim_{x \to 0} f(x)$ exists. So $f'(x)$ is continuous at 0
+
+\end{proof}
+
+
+\problem{2} 5.4.6 Problem 2
+
+Suppose $f'(x_0) = 0, \sp f''(x_0) = 0, \sp ... \sp, f^{(n-1)}(x_0) = 0$ and $f^{(n)} (x_0) > 0$ for a $f \in C^n$. Prove that $f$ has a local minimum at $x_0$ if $n$ is even and that $x_0$ is neither a local max or local min if $n$ is odd. 
+
+\textit{Hint: Use Taylor's Theorem 5.4.5}
+\hrule 
+
+
+\end{document}
