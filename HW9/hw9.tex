@@ -19,9 +19,9 @@ Show that $f(x) = O(|x - x_0|^2)$ as $x \to x_0$ implies $f(x) = o(|x - x_0|)$ a
 
 \begin{proof}
 
-We know that by the definition of big O $\exists 1/n, c \sp |x - x_0| < 1/n \implies |f(x)| \leq c |g(x)$. So we have $\exists 1/n, c \sp |x - x_0| < 1/n \implies |f(x)| \leq c |x - x_0|^2$. 
+We know that by the definition of big O $\exists 1/n, c \sp |x - x_0| < 1/n \implies |f(x)| \leq c |g(x)|$. So we have $\exists 1/n, c \sp |x - x_0| < 1/n \implies |f(x)| \leq c |x - x_0|^2$. 
 We want to show $\forall 1/m \sp \exists 1/n \sp st \sp |x - x_0| < 1/n \implies |f(x)| < 1/m |x - x_0|$ or equivalently $\lim_{x \to x_0} \frac{f(x)}{|x - x_0|} = 0$. 
-Then since $|f(x)| \leq c |x - x_0|^2$ we have $\frac{|f(x)|}{|x - x_0|} \leq c |x - x_0|$ within $x \in (x_0 - 1/n, x_0 + 1/n)$. Then we take the limit and non-strict inequality is preserved so $\lim_{x \to x_0} \frac{|f(x)|}{|x - x_0|} \leq \lim_{x \to x_0} c |x - x_0| = 0$. Since $\frac{|f(x)|}{|x - x_0|} > 0 \forall x$ then $\lim_{x \to x_0} \frac{|f(x)|}{|x - x_0|} = 0$ as required.
+Then since $|f(x)| \leq c |x - x_0|^2$ we have $\frac{|f(x)|}{|x - x_0|} \leq c |x - x_0|$ within $x \in (x_0 - 1/n, x_0 + 1/n)$. Then we take the limit and non-strict inequality is preserved so $\lim_{x \to x_0} \frac{|f(x)|}{|x - x_0|} \leq \lim_{x \to x_0} c |x - x_0| = 0$. Since $\frac{|f(x)|}{|x - x_0|} \geq 0 \sp \forall x$ then $\lim_{x \to x_0} \frac{|f(x)|}{|x - x_0|} = 0$ as required.
 \end{proof}
 
 For example: if we take the function $f(x) = |x - x_0|^{1.5}$ we have $\lim_{x \to x_0} \frac{|x - x_0|^{1.5}}{|x - x_0|} = \lim_{x \to x_0} \sqrt{|x - x_0|} = 0$ so $f \in o(|x - x_0|)$. 
