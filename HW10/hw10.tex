@@ -68,14 +68,21 @@ Suppose $f'(x_0) = 0, \sp f''(x_0) = 0, \sp ... \sp, f^{(n-1)}(x_0) = 0$ and $f^
 \begin{proof}
 
 Let $T_n$ denote the $n^{th}$ order Taylor approximation of $f$ around $x_0$. 
-$T_n = f(x_0) + f'(x_0) (x - x_0) + f''(x_0) (x - x_0)^2 + ... + f^{(n)}(x_0) (x - x_0)^n$. We know that $T_n$ approximates $f$ around $x_0$ and the first $n$ derivatives of $T_n$ match those of $f$. 
-So if there is a min or max of $f$ at $x_0$, $T$ will also have a min or max at $x_0$. We use the fact that $f^{(k)} = 0$ for $k = 1, 2, ... n-1$. 
+$T_n = f(x_0) + f'(x_0) (x - x_0) + f''(x_0) (x - x_0)^2 + ... + f^{(n)}(x_0) (x - x_0)^n$. We use the fact that $f^{(k)} = 0$ for $k = 1, 2, ... n-1$. 
 Then we have $T_n(x) = f(x_0) + \frac{f^{(n)}(x_0)}{n!} (x - x_0)^n$. 
-If $n$ is even, then $(x - x_0)^n > 0 \sp \forall x \neq x_0$. 
-Then we have it symmetric around $x_0$: $T_n(x_0 + 1/n) = T_n(x_0 - 1/n)$, and $T_n(x_1) > T_n(x_2) \sp for \sp |x_1 - x_0| > |x_2 - x_0|$. 
-Then we have $T_n$ strictly decreasing from both the left and right hand side, so it has a local min. Thus $f$ also has a local min.
 
-If $n$ is odd, then $(x - x_0)^n$ is not necessarily positive. We have $T_n$ decreasing from the right hand side, but increasing from the left hand side. So it is neither a local min or local max.
+By Theorem 5.4.5, we know that $f(x) - T_n(x) = o(|x-x_0|^n)$, or equivalently 
+$\lim_{x \to x_0} \frac{f(x) - T_n(x)}{|x-x_0|^n} = \lim_{x \to x_0} \frac{f(x) - f(x_0) - \frac{f^{(n)}(x_0)}{n!} (x - x_0)^n}{|x-x_0|^n} = 0$. Then we have:
+
+$$\lim_{x \to x_0} \frac{f(x) - f(x_0)}{|x-x_0|^n} = \lim_{x \to x_0} \frac{\frac{f^{(n)}(x_0)}{n!} (x - x_0)^n}{|x-x_0|^n}$$
+
+If $n$ is even, then $(x - x_0)^n \geq 0$ and $(x - x_0)^n = |x - x_0|^n$, so we get $\lim_{x \to x_0} \frac{f(x) - f(x_0)}{|x-x_0|^n} = \frac{f^{(n)}(x_0)}{n!}$ which must be larger than zero since $f^{(n)} > 0$. So $f(x) - f(x_0) > 0$ thus $x_0$ is a local min. 
+
+If $n$ is odd, then $(x - x_0)^n$ is not positive, but changes signs. 
+On the left ($x < x_0$) we have $\lim_{x \to x_0} \frac{f(x) - f(x_0)}{|x-x_0|^n} = -\frac{f^{(n)}(x_0)}{n!}$ which is less than zero, so $f(x) - f(x_0) < 0$. 
+But on the right ($x > x_0$) we have $\lim_{x \to x_0} \frac{f(x) - f(x_0)}{|x-x_0|^n} = \frac{f^{(n)}(x_0)}{n!}$ which is greater than zero, so $f(x) - f(x_0) > 0$. 
+So on the left of $x_0$ $f(x)$ is less than $f(x_0)$, but on the right $f$ is larger than $f(x_0)$. So it neither a local min nor max.
+
 
 
 \end{proof}
