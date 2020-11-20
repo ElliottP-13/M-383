@@ -66,7 +66,16 @@ If $f$ is a continuous function on $\reals$, is it true that $x$ is a limit-poin
 
 \hrule
 
+Yes
 
+\begin{proof}
+
+
+By theorem 4.1.2, a function $f$ on domain $\mathbb{D}$ is continuous iff for every sequence of points $x_1, x_2, ...$ that has a limit in $\mathbb{D}$ the sequence $f(x_1), f(x_2), ...$ is convergent. Since $f$ is continuous we have that $f(x_1), f(x_2),...$ is convergent to $f(x)$ and thus $f(x)$ is a limit point.
+
+
+
+\end{proof}
 
 
 
@@ -83,7 +92,18 @@ Show that $f$ is differentiable at all $x \in \reals$. Is $f'(x)$ continuous at 
 
 \hrule
 
+\begin{proof}
 
+So first we show that $f'$ exists at $x \neq 0$. By product and chain rule $f'(x) = 2x \cos (1/x^2) + sin(1/x^2)$.
+This is well defined $\forall x \neq 0$. 
+
+Then at $x = 0$ we must show that the derivative exists. We show that $\lim_{x \to 0} \frac{f(x) - f(0)}{x - 0}$ exists. 
+
+$$\lim_{x \to 0} \frac{f(x) - f(0)}{x - 0} = \lim_{x \to 0} \frac{x^2 \cos(1/x^2)}{x} =  \lim_{x \to 0} x \cos(1/x) = 0$$
+
+So $f$ is differentiable everywhere. But $\lim_{x \to 0} f'(x) = \lim_{x \to 0} 2x \cos (1/x^2) + sin(1/x^2) = DNE$ so it is not continuous at $x = 0$
+
+\end{proof}	
 
 
 
@@ -92,9 +112,27 @@ Show that $f$ is differentiable at all $x \in \reals$. Is $f'(x)$ continuous at 
 \problem{5}
 
 Suppose $f(x)$ is continuously differentiable on an interval $(a,b)$. Prove that on any closed subinterval $[c,d]$ of $(a,b)$, the function is uniformly differentiable in the sense that given any $1/m$ there exists $1/n$ (independent of $x_0, x$) such that for all $x, x_0 \in [c,d]$ $|x - x_0| < 1/n$ we have
-$$|f(x) - f(x_0) - f'(x_0)(x-x_0) \leq \frac{1}{m} |x - x_0|$$
+$$|f(x) - f(x_0) - f'(x_0)(x-x_0)| \leq \frac{1}{m} |x - x_0|$$
 
 \textit{Hint: Use mean value theorem on $f(x) - f(x_0)$ and the fact that $f'(x)$ is continuous function on the compact set $[c,d]$}
+
+\hrule
+
+\begin{proof}
+ 
+By the mean value theorem $\exists x_1 \in (x_0, x)$ $f'(x_1) = \frac{f(x) - f(x_0)}{x - x_0}$. 
+We can arrange this to get $|f(x) - f(x_0) - f'(x_1)(x - x_0)| = 0$. 
+We then add $|f'(x_1)(x - x_0) - f'(x_0)(x - x_0)|$ resulting in: $|f(x) - f(x_0) - f'(x_0)(x - x_0)| = |f'(x_1)(x - x_0) - f'(x_0)(x - x_0)|$.
+Since $f'(x)$ is continuous on a compact domain, by theorem 4.2.5, $f'$ is uniformly continuous. So independent of $x, x_0$ we have $\forall 1/m \sp \exists 1/n \sp st. \sp \forall x_1, x_0 \sp |x - x_0| < 1/n \implies |f'(x_1) - f(x_0)| < 1/m$. 
+If we multiply this last by $|x - x_0|$ we get $|f'(x_1)(x - x_0) - f'(x_0)(x - x_0)| < 1/m |x - x_0|$.
+
+Thus in conclusion we have, independent of $x, x_0$, $\forall 1/m \sp \exists 1/n \sp st. \sp \forall x_1, x_0 \sp |x - x_0| < 1/n$
+
+$$|f(x) - f(x_0) - f'(x_0)(x - x_0)| = |f'(x_1)(x - x_0) - f'(x_0)(x - x_0)| \leq  1/m |x - x_0|$$
+
+
+
+\end{proof}
 
 
 
